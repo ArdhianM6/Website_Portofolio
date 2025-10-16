@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Skills</title>
+
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Ardhian</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="project.html">Project</a>
+            <a href="experience.html">Experience</a>
+            <a href="certificate.html">Certificates</a>
+        </nav>
+    </header>
+
+    <section class="skills-section">
+        <div class="skills-heading">
+            <h1>Skills</h1>
+            <p>Berikut beberapa skill pemrograman yang saya miliki berdasarkan project yang pernah saya kerjakan.</p>
+        </div>
+    
+        <!-- Skills Grid -->
+        <div class="skills-container">
+            <div class="skill" data-tilt>
+                <i class="fab fa-html5"></i>
+                <h3>HTML / CSS</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
+                <p>Pengalaman mendesain website menggunakan HTML dan CSS.</p>
+            </div>
+
+            <div class="skill" data-tilt>
+                <i class="fas fa-database"></i>
+                <h3>PostgreSQL</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
+                </div>
+                <p>Untuk mengolah database saya biasa menggunakan PostgreSQL.</p>
+            </div>
+
+            <div class="skill" data-tilt>
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;"></div>
+                </div>
+                <p>Mampu membangun aplikasi web yang interaktif dan dinamis.</p>
+            </div>
+
+            <div class="skill" data-tilt>
+                <i class="fab fa-react"></i>
+                <h3>React</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 69%;"></div>
+                </div>
+                <p>Terampil dalam membangun aplikasi front-end yang dapat diskalakan.</p>
+            </div>
+
+            <div class="skill" data-tilt>
+                <i class="fab fa-node-js"></i>
+                <h3>Node.js</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;"></div>
+                </div>
+                <p>Berpengalaman dalam pengembangan back-end dan pembuatan API.</p>
+            </div>
+
+            <div class="skill" data-tilt>
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
+                </div>
+                <p>Keahlian kuat dalam scripting, analisis data, dan machine learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VanillaTilt JS untuk efek 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".skill"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3,
+        });
+    </script>
+    
+</body>
+
+</html>
