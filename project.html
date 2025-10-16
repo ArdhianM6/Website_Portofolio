@@ -2,119 +2,128 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project</title>
+  <link rel="stylesheet" href="css/project.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <a href="index.html" class="logo">Ardhian</a>
+  <header>
+    <a href="index.html" class="logo">Ardhian</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="skills.html">Skills</a>
+      <a href="project.html" class="active">Project</a>
+      <a href="experience.html">Experience</a>
+      <a href="certificate.html">Certificates</a>
+    </nav>
+  </header>
 
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="skills.html">Skills</a>
-            <a href="project.html">Project</a>
-            <a href="experience.html">Experience</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <section class="project-section">
+    <h1 class="page-title">My Projects</h1>
+    <p class="page-subtitle">Beberapa karya dan project yang telah saya buat:</p>
 
-    <section>
-        <div class="skills-heading">
-            <h1>Project</h1>
-            <p>Welcome to the Project page. Below are some of my works:</p>
+    <div class="slider-container">
+      <div class="slider-wrapper">
+
+        <!-- SLIDE 1 -->
+        <div class="slide">
+          <div class="project-card">
+            <img src="img/xd.png" alt="Fresh Food Ecommerce">
+            <h3>Fresh Food Ecommerce (PHP)</h3>
+            <p>Website jual beli makanan segar berbasis PHP & MySQL.</p>
+            <a href="project-detail/project1.html" class="btn">View Detail</a>
+          </div>
+
+          <div class="project-card">
+            <img src="img/project2-1.jpg" alt="Book Tracker">
+            <h3>Book Tracker (React)</h3>
+            <p>Web app untuk mengelola daftar buku menggunakan React.</p>
+            <a href="project-detail/project2.html" class="btn">View Detail</a>
+          </div>
+
+          <div class="project-card">
+            <img src="img/project3-1.jpg" alt="Social Media API">
+            <h3>Social Media API</h3>
+            <p>API sederhana untuk fitur posting, komentar, dan followers.</p>
+            <a href="project-detail/project3.html" class="btn">View Detail</a>
+          </div>
         </div>
 
-        <div class="slider-container">
-            <div class="slider-wrapper">
-                <!-- Slide 1 -->
-                <div class="slide">
-                    <div class="skills-container project-list">
-                        <div class="skill project-item">
-                            <h3>Project 1: Fresh Food Ecommerce (PHP) </h3>
-                            <p>Website sederhana untuk jual beli makanan segar seperti sayuran, buah - buahan dan lainnya.</p>
-                            <a class="btn" href="https://github.com/ArdhianM6/Project-Freshfood-Ecommerce.git" target="_blank">View Repository</a>
-                        </div>
-                        <div class="skill project-item">
-                            <h3>Project 2: Book Tracker (React)</h3>
-                            <p>Sebuah project tracker untuk mengelola list buku</p>
-                            <a class="btn" href="https://github.com/ArdhianM6/book-tracker.git" target="_blank">View Repository</a>
-                            <a class="btn" href="https://ardhianm6.github.io/book-tracker/" target="_blank">View Project</a>
-                        </div>
-                        <div class="skill project-item">
-                            <h3>Project 3: Social Media API</h3>
-                            <p>API sederhana untuk platform sosial media sederhana dengan fitur Posting, komentar, likes, dan followers dengan relasi database.</p>
-                            <a class="btn" href="https://github.com/ArdhianM6/social-media-api.git" target="_blank">View Repository</a>
-                        </div>
-                        <div class="skill project-item">
-                            <h3>Project 4: Task Manager</h3>
-                            <p>A task management tool with CRUD functionality, built using React and Node.js.</p>
-                            <a class="btn" href="https://github.com/yourusername/task-manager" target="_blank">View Repository</a>
-                            <a class="btn" href="https://yourhostingdomain.com/task-manager" target="_blank">View Project</a>
-                        </div>
-                        <div class="skill project-item">
-                            <h3>Project 5: Blog Website</h3>
-                            <p>A dynamic blog platform built with Django and PostgreSQL.</p>
-                            <a class="btn" href="https://github.com/yourusername/blog" target="_blank">View Repository</a>
-                            <a class="btn" href="https://yourhostingdomain.com/blog" target="_blank">View Project</a>
-                        </div>
-                        <div class="skill project-item">
-                            <h3>Project 6: Online Quiz App</h3>
-                            <p>A quiz app with real-time scoring and leaderboard features.</p>
-                            <a class="btn" href="https://github.com/yourusername/quiz-app" target="_blank">View Repository</a>
-                            <a class="btn" href="https://yourhostingdomain.com/quiz-app" target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- SLIDE 2 -->
+        <div class="slide">
+          <div class="project-card">
+            <img src="img/project4-1.jpg" alt="Task Manager">
+            <h3>Task Manager</h3>
+            <p>Aplikasi manajemen tugas berbasis React dan Node.js.</p>
+            <a href="project-detail/project4.html" class="btn">View Detail</a>
+          </div>
 
-                <!-- Slide 2 -->
-                <div class="slide">
-                    <div class="skills-container project-list">
-                        <div class="skill project-item">
-                            <h3>Project 7: To-Do List App</h3>
-                            <p>A simple to-do list app built using vanilla JavaScript.</p>
-                            <a class="btn" href="https://github.com/yourusername/todo-list" target="_blank">View Repository</a>
-                            <a class="btn" href="https://yourhostingdomain.com/todo-list" target="_blank">View Project</a>
-                        </div>
-                        <!-- Tambahkan proyek lainnya -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigasi Slider -->
-            <div class="navigation-buttons">
-                <button class="nav-btn" id="prevBtn" disabled>Previous</button>
-                <button class="nav-btn" id="nextBtn">Next</button>
-            </div>
+          <div class="project-card">
+            <img src="img/project5-1.jpg" alt="Blog Website">
+            <h3>Blog Website</h3>
+            <p>Platform blog dinamis dengan Django dan PostgreSQL.</p>
+            <a href="project-detail/project5.html" class="btn">View Detail</a>
+          </div>
         </div>
-    </section>
 
-    <script>
-        const sliderWrapper = document.querySelector('.slider-wrapper');
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentSlide = 0;
+      </div>
 
-        function updateSlider() {
-            sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === slides.length - 1;
-        }
+      <div class="navigation-buttons">
+        <button class="nav-btn" id="prevBtn">← Prev</button>
+        <button class="nav-btn" id="nextBtn">Next →</button>
+      </div>
+    </div>
+  </section>
 
-        prevBtn.addEventListener('click', () => {
-            if (currentSlide > 0) currentSlide--;
-            updateSlider();
-        });
+  <script>
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
 
-        nextBtn.addEventListener('click', () => {
-            if (currentSlide < slides.length - 1) currentSlide++;
-            updateSlider();
-        });
-    </script>
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    function updateSlider() {
+      sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 5000); // setiap 5 detik
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    // mulai otomatis saat halaman dibuka
+    startAutoSlide();
+  </script>
 </body>
 
 </html>

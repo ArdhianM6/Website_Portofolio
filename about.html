@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- ✅ Tambahan untuk ikon -->
     <title>About Me</title>
 </head>
 
@@ -12,33 +13,63 @@
     <header>
         <a href="index.html" class="logo">Ardhian</a>
 
+        <!-- ✅ Tambahkan ikon menu -->
+        <i id="menu-icon" class="fa-solid fa-bars"></i>
+
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html" class="active">About Me</a>
             <a href="skills.html">Skills</a>
             <a href="project.html">Project</a>
             <a href="experience.html">Experience</a>
-            <a href="contact.html">Contact</a>
+            <a href="certificate.html">Certificates</a>
         </nav>
     </header>
 
-    <section class="about-container">
-        <img src="foto.jpg" alt="Ardhian's Photo">
-        <h1>Hi, Perkenalkan Saya Ardhian</h1>
-        <p>
-            Saya seorang pengembang web yang bersemangat dan pemecah masalah kreatif dengan suka untuk membangun situs web yang indah dan fungsional. 
-            Dengan pengalaman dalam HTML, CSS, JavaScript, dan kerangka kerja modern, saya berusaha untuk memberikan solusi berkualitas tinggi yang disesuaikan dengan kebutuhan Anda.
-        </p>
-        <p>
-            Perjalanan saya dimulai dengan rasa ingin tahu yang mendalam terhadap teknologi dan dorongan untuk terus belajar dan meningkatkan skill yang saya miliki. 
-            Saya telah mengerjakan beberapa project yang dapat anda lihat pada porfolio ini, mengikuti program magang beserta project freelance mendorong batas saya untuk mencapai keunggulan.
-        </p>
-        <p>
-            Di luar pekerjaan, saya senang menjelajahi tempat-tempat baru, bereksperimen dengan ide desain, dan saya akan terus belajar dan mengasah kemampuan saya agar tidak pudar. 
-            Jangan ragu untuk menelusuri proyek saya atau menghubungi kontak yang tertera. Mari kita ciptakan sesuatu yang luar biasa bersama-sama!
-        </p>
+    <section class="about-section">
+        <div class="about-container">
+            <img src="foto.jpg" alt="Ardhian's Photo" class="about-img" data-animate>
+            <h1 data-animate>Hi, Perkenalkan Saya <span>Ardhian</span></h1>
+            <p data-animate>
+                Saya seorang pengembang web yang bersemangat dan pemecah masalah kreatif dengan suka untuk membangun situs web yang indah dan fungsional. 
+                Dengan pengalaman dalam HTML, CSS, JavaScript, dan kerangka kerja modern, saya berusaha untuk memberikan solusi berkualitas tinggi yang disesuaikan dengan kebutuhan Anda.
+            </p>
+            <p data-animate>
+                Perjalanan saya dimulai dengan rasa ingin tahu yang mendalam terhadap teknologi dan dorongan untuk terus belajar dan meningkatkan skill yang saya miliki. 
+                Saya telah mengerjakan beberapa project yang dapat anda lihat pada portfolio ini, mengikuti program magang beserta project freelance mendorong batas saya untuk mencapai keunggulan.
+            </p>
+            <p data-animate>
+                Di luar pekerjaan, saya senang menjelajahi tempat-tempat baru, bereksperimen dengan ide desain, dan saya akan terus belajar dan mengasah kemampuan saya agar tidak pudar. 
+                Jangan ragu untuk menelusuri proyek saya atau menghubungi kontak yang tertera. Mari kita ciptakan sesuatu yang luar biasa bersama-sama!
+            </p>
+        </div>
     </section>
-    
-</body>
 
+    <!-- ✨ JavaScript Animasi Scroll Fade-In -->
+    <script>
+        document.addEventListener("scroll", () => {
+            const elements = document.querySelectorAll("[data-animate]");
+            const triggerBottom = window.innerHeight * 0.85;
+            elements.forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < triggerBottom) {
+                    // tambahkan delay agar muncul berurutan
+                    setTimeout(() => {
+                        el.classList.add("visible");
+                    }, index * 150); // 150ms antar elemen
+                }
+            });
+        });
+    </script>
+
+    <!-- ✅ Tambahan Script Toggle Menu -->
+    <script>
+        const menuIcon = document.querySelector('#menu-icon');
+        const nav = document.querySelector('nav');
+
+        menuIcon.onclick = () => {
+            nav.classList.toggle('active');
+        };
+    </script>
+</body>
 </html>

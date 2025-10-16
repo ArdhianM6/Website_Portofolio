@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website - Ardhian</title>
+
+    <!-- Font & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Portfolio Website</title>
 </head>
+
 <body>
+    <!-- HEADER -->
     <header>
         <a href="#" class="logo">Ardhian</a>
 
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
         <nav>
-            <a href="index.html" class="active"> Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="about.html">About Me</a>
             <a href="skills.html">Skills</a>
             <a href="project.html">Project</a>
             <a href="experience.html">Experience</a>
-            <a href="contact.html">Contact</a>
+            <a href="certificate.html">Certificates</a>
         </nav>
     </header>
+
+    <!-- HOME SECTION -->
     <section class="home">
-        <div class="home-img">
-            <img src="foto.jpg" alt="">
+        <div class="home-img" data-animate>
+            <img src="foto.jpg" alt="Foto Profil Ardhian">
         </div>
-        <div class="home-content">
+
+        <div class="home-content" data-animate>
             <h1>Hai, Nama Saya <span>Ardhian</span></h1>
             <h3 class="typing-text">I'm a <span></span></h3>
-            <p>Saya sedang aktif mencari pekerjaan untuk mendapatkan pengalaman kerja. Apabila anda tertarik untuk merekrut saya, silahkan tekan tombol HIRE ME. Untuk social media, anda dapat mengakses icon link berikut.
-
+            <p>
+                Saya sedang aktif mencari pekerjaan untuk mendapatkan pengalaman kerja. 
+                Apabila anda tertarik untuk merekrut saya, silahkan tekan tombol HIRE ME. 
+                Untuk social media, anda dapat mengakses icon link berikut.
             </p>
+
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/ardhian-maulana-a01382328/"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/ArdhianM6"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.tiktok.com/@ineedsky6" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="https://www.instagram.com/ardhimltg"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <a href="#" class="btn">Hire me</a>
+
+            <!-- Tambahkan class hire-btn di sini -->
+            <a href="#" class="btn hire-btn">HIRE ME</a>
         </div>
     </section>
 
-    <footer>
+    <!-- FOOTER -->
+    <footer data-animate>
         <div class="footer-container">
             <p class="footer-title">Hubungi Saya:</p>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ardhianmaulanatanjung@gmail.com" class="footer-link" target="_blank">
@@ -56,7 +70,134 @@
             <p>&copy; 2024 Ardhian. All rights reserved.</p>
         </div>
     </footer>
-    
-    
+
+    <!-- SCRIPT -->
+    <script>
+        // === Toggle Navbar (Mobile) ===
+        const menuIcon = document.getElementById('menu-icon');
+        const nav = document.querySelector('nav');
+        menuIcon.onclick = () => {
+            nav.classList.toggle('active');
+        };
+
+        // === Scroll Reveal Animation ===
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            animatedElements.forEach(el => {
+                const position = el.getBoundingClientRect().top;
+                if (position < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // === Typing Effect ===
+        document.addEventListener("DOMContentLoaded", function() {
+            const roles = [
+                "Web Developer",
+                "UI/UX Designer",
+                "Fullstack Developer",
+            ];
+            const span = document.querySelector(".typing-text span");
+            let index = 0;
+            let charIndex = 0;
+            let deleting = false;
+            const typingSpeed = 100;
+            const erasingSpeed = 60;
+            const delayBetweenWords = 2000;
+
+            function type() {
+                const current = roles[index];
+                if (!deleting && charIndex < current.length) {
+                    span.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+                    setTimeout(type, typingSpeed);
+                } else if (deleting && charIndex > 0) {
+                    span.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(type, erasingSpeed);
+                } else {
+                    if (!deleting) {
+                        deleting = true;
+                        setTimeout(type, delayBetweenWords);
+                    } else {
+                        deleting = false;
+                        index = (index + 1) % roles.length;
+                        setTimeout(type, 400);
+                    }
+                }
+            }
+
+            type();
+        });
+    </script>
+
+    <!-- ===== MODAL HIRE ME ===== -->
+    <div class="modal-overlay" id="hireModal">
+      <div class="modal">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h2>Hire Me</h2>
+        <p>Silakan isi data perusahaan Anda untuk mengundang saya.</p>
+
+        <!-- ✅ DITAMBAHKAN FORMSPREE -->
+        <form id="hireForm" action="https://formspree.io/f/mvgwdwnj" method="POST">
+          <div class="form-group">
+            <label>Nama Perusahaan</label>
+            <input type="text" name="company" placeholder="Nama perusahaan" required>
+          </div>
+          <div class="form-group">
+            <label>Nomor HP</label>
+            <input type="tel" name="phone" placeholder="Nomor WhatsApp / HP" required>
+          </div>
+          <div class="form-group">
+            <label>Alamat</label>
+            <input type="text" name="address" placeholder="Alamat perusahaan" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email perusahaan" required>
+          </div>
+          <div class="form-group">
+            <label>Pekerjaan / Posisi</label>
+            <input type="text" name="job" placeholder="Posisi yang ditawarkan" required>
+          </div>
+          <div class="form-group">
+            <label>Gaji yang Ditawarkan</label>
+            <input type="text" name="salary" placeholder="Contoh: Rp 8.000.000" required>
+          </div>
+          <button type="submit" class="submit-btn">Kirim</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===== SCRIPT MODAL ===== -->
+    <script>
+      const hireBtn = document.querySelector(".hire-btn");
+      const modal = document.getElementById("hireModal");
+      const closeModal = document.getElementById("closeModal");
+
+      if (hireBtn) {
+        hireBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      }
+
+      closeModal.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+      });
+    </script>
 </body>
 </html>

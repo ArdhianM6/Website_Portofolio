@@ -1,0 +1,251 @@
+/* ==============================
+   GENERAL STYLE
+================================= */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Fade-in animation */
+body.loaded .project-detail,
+body.loaded header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+header,
+.project-detail {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.logo {
+  color: #c55;
+  font-weight: 700;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #c55;
+}
+
+nav a.active {
+  color: #c55;
+  border-bottom: 2px solid #c55;
+}
+
+/* ==============================
+   PROJECT DETAIL SECTION
+================================= */
+.project-detail {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at top left, rgba(204, 85, 85, 0.15), transparent 70%);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 25px rgba(204, 85, 85, 0.1);
+  animation: fadeIn 1s ease forwards;
+}
+
+.project-detail h1 {
+  color: #c55;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.project-detail h1:hover {
+  color: #e66;
+}
+
+.description {
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  transition: opacity 0.4s ease;
+}
+
+/* ==============================
+   GALLERY
+================================= */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: floatImage 5s ease-in-out infinite alternate;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(204, 85, 85, 0.6);
+}
+
+/* ==============================
+   BUTTONS
+================================= */
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #c55, #a33);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(204, 85, 85, 0.3);
+}
+
+/* Shine effect on hover */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(204, 85, 85, 0.7);
+}
+
+.back-btn {
+  background-color: transparent;
+  border: 2px solid #c55;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #c55;
+  transform: scale(1.07);
+}
+
+/* ==============================
+   ANIMATIONS
+================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatImage {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* ==============================
+   RESPONSIVE
+================================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    margin: 5px;
+  }
+
+  .image-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .image-gallery img {
+    height: 200px;
+  }
+}
+/* ==============================
+   IMAGE LIGHTBOX (ZOOM FEATURE)
+================================= */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  cursor: zoom-out;
+}
+
+#lightbox.active {
+  display: flex;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+#lightbox-img:active {
+  cursor: grabbing;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

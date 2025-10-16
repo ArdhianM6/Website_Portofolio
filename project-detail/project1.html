@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1 - Fresh Food Ecommerce</title>
+  <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="logo">Ardhian</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Me</a>
+      <a href="../skills.html">Skills</a>
+      <a href="../project.html" class="active">Project</a>
+      <a href="../experience.html">Experience</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <h1>Fresh Food Ecommerce (PHP)</h1>
+    <p class="description">
+      Website sederhana untuk jual beli makanan segar seperti sayuran, buah, dan bahan dapur lainnya.
+      Dibangun menggunakan PHP dan MySQL dengan sistem login, keranjang belanja, dan pembayaran sederhana.
+    </p>
+
+    <!-- ✅ Gambar Project -->
+    <div class="image-gallery">
+      <img src="../img/xd.png" alt="Tampilan utama Fresh Food Ecommerce" class="zoomable">
+      <img src="../img/project1-2.jpg" alt="Halaman produk Fresh Food Ecommerce" class="zoomable">
+    </div>
+
+    <div class="project-links">
+      <a href="https://github.com/ArdhianM6/Project-Freshfood-Ecommerce.git" target="_blank" class="btn">View Repository</a>
+      <a href="../project.html" class="btn back-btn">← Kembali ke Project</a>
+    </div>
+  </section>
+
+  <!-- 🔍 Lightbox (Zoom Overlay) -->
+  <div id="lightbox">
+    <img id="lightbox-img" src="" alt="Zoomed Image">
+  </div>
+
+  <script>
+    // Menambahkan class loaded untuk animasi masuk
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    // Lightbox Zoom Logic
+    const zoomableImages = document.querySelectorAll(".zoomable");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    zoomableImages.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("active");
+      });
+    });
+
+    // Tutup lightbox jika diklik area luar gambar
+    lightbox.addEventListener("click", (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.classList.remove("active");
+      }
+    });
+
+    // Zoom in / out menggunakan scroll
+    let scale = 1;
+    lightboxImg.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      scale += e.deltaY * -0.001;
+      scale = Math.min(Math.max(1, scale), 3); // Batas zoom 1x - 3x
+      lightboxImg.style.transform = `scale(${scale})`;
+    });
+  </script>
+</body>
+
+</html>
